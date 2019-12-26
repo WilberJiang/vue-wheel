@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/WilberJiang/vue-wheel/issues"
   },
-  "homepage": "https://github.com/WilberJiang/vue-wheel#readme"
+  "homepage": "https://github.com/WilberJiang/vue-wheel#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
