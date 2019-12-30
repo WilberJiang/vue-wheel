@@ -28,12 +28,16 @@
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <g-button>按钮</g-button>
-      <g-button icon="shezhi">按钮</g-button>
-      <g-button icon="shezhi" icon-position="right">按钮</g-button>
-      <g-icon name="shezhi"></g-icon>
+      <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>
+      <g-button icon="shezhi" :loading="loading1" @click="loading1=!loading1">按钮</g-button>
+      <g-button icon="shezhi" icon-position="right" :loading="loading1" @click="loading1=!loading1">按钮</g-button>
+      <g-button-group>
+        <g-button icon="bianzu">上一页</g-button>
+        <g-button>更多</g-button>
+        <g-button icon="bianzu-copy" icon-position="right">下一页</g-button>
+      </g-button-group>
     </div>
     <script src="/app.a6a4d504.js"></script>
-    <script src="//at.alicdn.com/t/font_1588845_eflla5f8dsr.js"></script>
+    <script src="//at.alicdn.com/t/font_1588845_g34efzg25l.js"></script>
   </body>
 </html>
