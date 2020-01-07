@@ -12710,6 +12710,11 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   props: {
     value: {
@@ -12743,7 +12748,21 @@ exports.default = _default;
     [
       _c("input", {
         attrs: { type: "text", disabled: _vm.disabled },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            return _vm.$emit("change", $event.target.value)
+          },
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          },
+          focus: function($event) {
+            return _vm.$emit("focus", $event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event.target.value)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -12821,7 +12840,11 @@ _vue.default.component("g-input", _input.default);
 new _vue.default({
   el: "#app",
   data: {
-    loading1: false
+    loading: false,
+    msg: 'hi'
+  },
+  methods: {
+    inputChange: function inputChange(e) {}
   }
 }); // // 单元测试
 // import chai from "chai";
@@ -12934,7 +12957,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52008" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50105" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

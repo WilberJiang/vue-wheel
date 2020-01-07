@@ -12,8 +12,13 @@ Vue.component("g-input", Input);
 new Vue({
   el: "#app",
   data: {
-    loading1: false
-  }
+    loading: false,
+    msg:'hi'
+  },
+  methods: {
+    inputChange(e) {
+    }
+  },
 });
 
 // // 单元测试
