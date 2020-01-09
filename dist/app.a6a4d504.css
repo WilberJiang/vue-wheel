@@ -110,6 +110,15 @@
 .row[data-v-925c2b] {
   display: flex;
 }
+.row.align-left[data-v-925c2b] {
+  text-align: left;
+}
+.row.align-right[data-v-925c2b] {
+  text-align: right;
+}
+.row.align-center[data-v-925c2b] {
+  text-align: center;
+}
 .col[data-v-3916ea] {
   height: 100px;
   background: gray;
