@@ -33,12 +33,12 @@
     <div id="app">
       <div class="box">
         <g-row>
-          <g-col span="2"></g-col>
-          <g-col span="22"></g-col>
-        </g-row>
-        <g-row gutter="20">
           <g-col span="2">1</g-col>
-          <g-col span="20" offset="2">2</g-col>
+          <g-col span="22">2</g-col>
+        </g-row>
+        <g-row>
+          <g-col span="20" :pc="{span:16}" :narrow-pc="{span:12}" :phone="{span:4}">1</g-col>
+          <g-col span="4" :pc="{span:8}" :narrow-pc="{span:12}" :phone="{span:20}">2</g-col>
         </g-row>
       </div>
       <div class="box">

@@ -25,9 +25,9 @@ export default {
         marginRight: -gutter / 2 + "px"
       };
     },
-    rowClass(){
-      let {align}=this;
-      return [align&&`align-${align}`]
+    rowClass() {
+      let { align } = this;
+      return [align && `align-${align}`];
     }
   },
   mounted() {
@@ -41,14 +41,15 @@ export default {
 <style lang="scss" scoped>
 .row {
   display: flex;
-  &.align-left{
+  flex-wrap: wrap;
+  &.align-left {
     text-align: left;
   }
-  &.align-right{
+  &.align-right {
     text-align: right;
   }
-  &.align-center{
-    text-align: center ;
+  &.align-center {
+    text-align: center;
   }
 }
 </style>

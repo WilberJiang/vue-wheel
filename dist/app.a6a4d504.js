@@ -12920,12 +12920,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
 //
 //
 //
+var validator = function validator(value) {
+  var keys = Object.keys(value);
+  var invalid = true;
+  keys.forEach(function (key) {
+    if (!["span", "offset"].includes(key)) {
+      invalid = false;
+    }
+  });
+  return invalid;
+};
+
 var _default = {
   props: {
     span: {
@@ -12933,6 +12953,22 @@ var _default = {
     },
     offset: {
       type: [Number, String]
+    },
+    phone: {
+      type: Object,
+      validator: validator
+    },
+    ipad: {
+      type: Object,
+      validator: validator
+    },
+    narrowPc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: validator
     }
   },
   data: function data() {
@@ -12943,8 +12979,12 @@ var _default = {
   computed: {
     colClass: function colClass() {
       var span = this.span,
-          offset = this.offset;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+          offset = this.offset,
+          phone = this.phone,
+          ipad = this.ipad,
+          narrowPc = this.narrowPc,
+          pc = this.pc;
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pc ? [pc.span && "col-pc-".concat(pc.span), pc.offset && "offset-pc-".concat(pc.offset)] : []), _toConsumableArray(narrowPc ? [narrowPc.span && "col-narrow-pc-".concat(narrowPc.span), narrowPc.offset && "offset-narrow-pc-".concat(narrowPc.offset)] : []), _toConsumableArray(ipad ? [ipad.span && "col-ipad-".concat(ipad.span), ipad.offset && "offset-ipad-".concat(ipad.offset)] : []), _toConsumableArray(phone ? [phone.span && "col-phone-".concat(phone.span), phone.offset && "offset-phone-".concat(phone.offset)] : []));
     },
     colStyle: function colStyle() {
       var gutter = this.gutter;
