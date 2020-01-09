@@ -12984,7 +12984,11 @@ var _default = {
           ipad = this.ipad,
           narrowPc = this.narrowPc,
           pc = this.pc;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pc ? [pc.span && "col-pc-".concat(pc.span), pc.offset && "offset-pc-".concat(pc.offset)] : []), _toConsumableArray(narrowPc ? [narrowPc.span && "col-narrow-pc-".concat(narrowPc.span), narrowPc.offset && "offset-narrow-pc-".concat(narrowPc.offset)] : []), _toConsumableArray(ipad ? [ipad.span && "col-ipad-".concat(ipad.span), ipad.offset && "offset-ipad-".concat(ipad.offset)] : []), _toConsumableArray(phone ? [phone.span && "col-phone-".concat(phone.span), phone.offset && "offset-phone-".concat(phone.offset)] : []));
+      var createClasses = this.createClasses;
+      return [].concat(_toConsumableArray(createClasses({
+        span: span,
+        offset: offset
+      })), _toConsumableArray(createClasses(pc, "pc-")), _toConsumableArray(createClasses(narrowPc, "narrow-pc-")), _toConsumableArray(createClasses(ipad, "ipad-")), _toConsumableArray(createClasses(phone, "phone-")));
     },
     colStyle: function colStyle() {
       var gutter = this.gutter;
@@ -12992,6 +12996,25 @@ var _default = {
         paddingLeft: gutter / 2 + "px",
         paddingRight: gutter / 2 + "px"
       };
+    }
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+
+      if (!obj) {
+        return [];
+      }
+
+      var array = [];
+
+      if (obj.span) {
+        array.push("col-".concat(str).concat(obj.span));
+      }
+
+      if (obj.offset) {
+        array.push("offset-".concat(str).concat(obj.offset));
+      }
     }
   }
 };
