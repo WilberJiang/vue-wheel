@@ -12913,10 +12913,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
 var _default = {
   props: {
     span: {
@@ -12930,6 +12926,17 @@ var _default = {
     return {
       gutter: 0
     };
+  },
+  computed: {
+    colClass: function colClass() {
+      return [this.span && "col-".concat(this.span), this.offset && "offset-".concat(this.offset)];
+    },
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + "px",
+        paddingRight: this.gutter / 2 + "px"
+      };
+    }
   }
 };
 exports.default = _default;
@@ -12947,14 +12954,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: ["col-" + _vm.span, _vm.offset && "offset-" + _vm.offset],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
