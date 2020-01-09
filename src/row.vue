@@ -48,7 +48,7 @@ export default {
     text-align: right;
   }
   &.align-center{
-    text-align: center;
+    text-align: center ;
   }
 }
 </style>
