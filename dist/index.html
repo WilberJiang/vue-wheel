@@ -20,25 +20,49 @@
         --border-color-hover: #666;
       }
       #app {
-        margin: 20px;
+        /* margin: 20px; */
       }
       body {
         font-size: var(--font-size);
       }</style>
     <style>.box {
         margin: 20px;
+      }
+      .demo {
+        border: 1px solid #666;
+        min-height: 100px;
       }</style>
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <div class="box">
+      <g-layout style="height:100vh">
+        <g-header class="demo">header</g-header>
+        <g-layout>
+          <g-sider class="demo">sider</g-sider>
+          <g-content class="demo">content</g-content>
+        </g-layout>
+        <g-footer class="demo">footer</g-footer>
+      </g-layout>
+      <!-- <div class="box">
         <g-row>
           <g-col span="2">1</g-col>
           <g-col span="22">2</g-col>
         </g-row>
         <g-row>
-          <g-col span="20" :pc="{span:16}" :narrow-pc="{span:12}" :phone="{span:4}">1</g-col>
-          <g-col span="4" :pc="{span:8}" :narrow-pc="{span:12}" :phone="{span:20}">2</g-col>
+          <g-col
+            span="20"
+            :pc="{span:16}"
+            :narrow-pc="{span:12}"
+            :phone="{span:4}"
+            >1</g-col
+          >
+          <g-col
+            span="4"
+            :pc="{span:8}"
+            :narrow-pc="{span:12}"
+            :phone="{span:20}"
+            >2</g-col
+          >
         </g-row>
       </div>
       <div class="box">
@@ -53,14 +77,22 @@
       </div>
       <div class="box">
         <g-button :loading="loading" @click="loading=!loading">按钮</g-button>
-        <g-button icon="shezhi" :loading="loading" @click="loading=!loading">按钮</g-button>
-        <g-button icon="shezhi" icon-position="right" :loading="loading" @click="loading=!loading">按钮</g-button>
+        <g-button icon="shezhi" :loading="loading" @click="loading=!loading"
+          >按钮</g-button
+        >
+        <g-button
+          icon="shezhi"
+          icon-position="right"
+          :loading="loading"
+          @click="loading=!loading"
+          >按钮</g-button
+        >
         <g-button-group>
           <g-button icon="bianzu">上一页</g-button>
           <g-button>更多</g-button>
           <g-button icon="bianzu-copy" icon-position="right">下一页</g-button>
         </g-button-group>
-      </div>
+      </div> -->
     </div>
     <script src="/app.a6a4d504.js"></script>
     <script src="//at.alicdn.com/t/font_1588845_kdyh4k9jpc.js"></script>
