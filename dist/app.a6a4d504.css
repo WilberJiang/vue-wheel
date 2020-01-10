@@ -859,10 +859,25 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 .layout.hasSider[data-v-91e342] {
   flex-direction: row;
+}
+.sider[data-v-5aaacd] {
+  position: relative;
+}
+.sider button[data-v-5aaacd] {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.sider-enter-active[data-v-5aaacd],
+.sider-leave-active[data-v-5aaacd] {
+  transition: all 0.5s;
+}
+.sider-enter[data-v-5aaacd],
+.sider-leave-to[data-v-5aaacd] {
+  margin-left: -200px;
 }
 .content[data-v-67d56e] {
   flex: 1;
