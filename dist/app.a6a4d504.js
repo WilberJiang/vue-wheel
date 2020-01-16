@@ -13448,7 +13448,69 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+var _default = {
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 50
+    },
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: "关闭",
+          callback: undefined
+        };
+      }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted() {
+    // this.updateStyles();
+    this.execAutoClose();
+  },
+  methods: {
+    updateStyles: function updateStyles() {
+      var _this = this;
+
+      this.$nextTick(function () {
+        _this.$refs.line.style.height = "".concat(_this.$refs.wrapper.getBoundingClientRect().height, "px");
+      }); // tricky
+    },
+    execAutoClose: function execAutoClose() {
+      var _this2 = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this2.close();
+        }, this.autoCloseDelay * 1000);
+      }
+    },
+    close: function close() {
+      this.$el.remove();
+      this.$destroy();
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+
+      if (typeof this.closeButton.callback === "function") {
+        this.closeButton.callback();
+      }
+    }
+  }
+};
 exports.default = _default;
         var $ec8cba = exports.default || module.exports;
       
@@ -13462,7 +13524,28 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
+    _c(
+      "div",
+      { staticClass: "message" },
+      [
+        !_vm.enableHtml
+          ? _vm._t("default")
+          : _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+            })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "line", staticClass: "line" }),
+    _vm._v(" "),
+    _vm.closeButton
+      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
+          _vm._v(_vm._s(_vm.closeButton.text))
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13511,9 +13594,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message) {
+    Vue.prototype.$toast = function (message, toastOptions) {
       var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor();
+      var toast = new Constructor({
+        propsData: toastOptions
+      });
       toast.$slots.default = [message];
       toast.$mount();
       document.body.appendChild(toast.$el);
@@ -13588,7 +13673,15 @@ new _vue.default({
   },
   methods: {
     showToast: function showToast() {
-      this.$toast("我是showToast");
+      this.$toast("很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字", {
+        closeButton: {
+          text: "知道了",
+          callback: function callback() {
+            console.log("用户说他知道了");
+          }
+        },
+        enableHtml: true
+      });
     }
   }
 }); // // 单元测试
