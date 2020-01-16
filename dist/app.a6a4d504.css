@@ -882,3 +882,19 @@
 .content[data-v-67d56e] {
   flex: 1;
 }
+.toast[data-v-ec8cba] {
+  font-size: 14px;
+  line-height: 1.8;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  padding: 0 16px;
+}

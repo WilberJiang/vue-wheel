@@ -10,6 +10,9 @@ import Header from "./header";
 import Sider from "./sider";
 import Content from "./content";
 import Footer from "./footer";
+import Toast from "./toast";
+import plugin from "./plugin";
+Vue.use(plugin);
 
 Vue.component("g-button", Button);
 Vue.component("g-icon", Icon);
@@ -22,17 +25,19 @@ Vue.component("g-header", Header);
 Vue.component("g-sider", Sider);
 Vue.component("g-content", Content);
 Vue.component("g-footer", Footer);
+Vue.component("g-toast", Toast);
 
 new Vue({
   el: "#app",
   data: {
     loading: false,
-    msg:'hi'
+    msg: "hi"
   },
   methods: {
-    inputChange(e) {
+    showToast() {
+      this.$toast("我是showToast");
     }
-  },
+  }
 });
 
 // // 单元测试
