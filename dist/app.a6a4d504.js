@@ -12835,7 +12835,7 @@ var _default = {
     align: {
       type: String,
       validator: function validator(value) {
-        return ["left", "right", "center"].includes(value);
+        return ["left", "right", "center"].indexOf(value) >= 0;
       }
     }
   },
@@ -12939,7 +12939,7 @@ var validator = function validator(value) {
   var keys = Object.keys(value);
   var invalid = true;
   keys.forEach(function (key) {
-    if (!["span", "offset"].includes(key)) {
+    if (!["span", "offset"].indexOf(key) >= 0) {
       invalid = false;
     }
   });
@@ -13461,7 +13461,7 @@ var _default = {
     },
     autoCloseDelay: {
       type: Number,
-      default: 50
+      default: 3
     },
     closeButton: {
       type: Object,
@@ -13475,6 +13475,18 @@ var _default = {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: "top",
+      validator: function validator(value) {
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+      }
+    }
+  },
+  computed: {
+    toastClasses: function toastClasses() {
+      return ["position-".concat(this.position)];
     }
   },
   mounted: function mounted() {
@@ -13524,28 +13536,34 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
-    _c(
-      "div",
-      { staticClass: "message" },
-      [
-        !_vm.enableHtml
-          ? _vm._t("default")
-          : _c("div", {
-              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
-            })
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { ref: "line", staticClass: "line" }),
-    _vm._v(" "),
-    _vm.closeButton
-      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
-          _vm._v(_vm._s(_vm.closeButton.text))
-        ])
-      : _vm._e()
-  ])
+  return _c(
+    "div",
+    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
+    [
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHtml
+            ? _vm._t("default")
+            : _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+              })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v(_vm._s(_vm.closeButton.text))]
+          )
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13673,14 +13691,17 @@ new _vue.default({
   },
   methods: {
     showToast: function showToast() {
-      this.$toast("很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字", {
+      this.$toast("很多文字很多文字", {
         closeButton: {
           text: "知道了",
           callback: function callback() {
             console.log("用户说他知道了");
           }
         },
-        enableHtml: true
+        autoClose: true,
+        autoCloseDelay: 30,
+        enableHtml: true,
+        position: "middle"
       });
     }
   }
@@ -13795,7 +13816,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53519" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51844" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

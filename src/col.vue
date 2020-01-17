@@ -9,7 +9,7 @@ let validator = value => {
   let keys = Object.keys(value);
   let invalid = true;
   keys.forEach(key => {
-    if (!["span", "offset"].includes(key)) {
+    if (!["span", "offset"].indexOf(key) >= 0) {
       invalid = false;
     }
   });
@@ -48,7 +48,7 @@ export default {
   computed: {
     colClass() {
       let { span, offset, phone, ipad, narrowPc, pc } = this;
-      let createClasses=this.createClasses
+      let createClasses = this.createClasses;
       return [
         ...createClasses({ span, offset }),
         ...createClasses(pc, "pc-"),
