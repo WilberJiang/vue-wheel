@@ -45,7 +45,7 @@ new Vue({
         autoClose: true,
         autoCloseDelay: 30,
         enableHtml: true,
-        position: "middle"
+        position: "top"
       });
     }
   }

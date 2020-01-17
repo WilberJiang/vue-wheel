@@ -13453,6 +13453,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   props: {
     autoClose: {
@@ -13498,7 +13500,7 @@ var _default = {
       var _this = this;
 
       this.$nextTick(function () {
-        _this.$refs.line.style.height = "".concat(_this.$refs.wrapper.getBoundingClientRect().height, "px");
+        _this.$refs.line.style.height = "".concat(_this.$refs.toast.getBoundingClientRect().height, "px");
       }); // tricky
     },
     execAutoClose: function execAutoClose() {
@@ -13537,10 +13539,8 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13563,8 +13563,8 @@ exports.default = _default;
             [_vm._v(_vm._s(_vm.closeButton.text))]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13725,7 +13725,7 @@ new _vue.default({
         autoClose: true,
         autoCloseDelay: 30,
         enableHtml: true,
-        position: "middle"
+        position: "top"
       });
     }
   }
