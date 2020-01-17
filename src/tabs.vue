@@ -33,12 +33,12 @@ export default {
   mounted() {
     this.$children.forEach(vm => {
       if (vm.$options.name === "g-tabs-head") {
-        vm.$children.forEach(item => {
+        vm.$children.forEach(childVm => {
           if (
-            item.$options.name === "g-tabs-item" &&
-            item.name === this.selected
+            childVm.$options.name === "g-tabs-item" &&
+            childVm.name === this.selected
           ) {
-            this.eventBus.$emit("update:selected", this.selected,item);
+            this.eventBus.$emit("update:selected", this.selected,childVm);
           }
         });
       }

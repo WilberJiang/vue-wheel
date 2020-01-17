@@ -972,6 +972,7 @@
   position: absolute;
   bottom: 0;
   border-bottom: 1px solid blue;
+  transition: all 0.3s;
 }
 .tabs-head .actions-wrapper[data-v-2cdba6] {
   margin-left: auto;
@@ -986,7 +987,4 @@
 .tabs-item.active[data-v-e7257a] {
   color: blue;
   font-weight: border;
-}
-.tabs-pane.active[data-v-8c86cd] {
-  background: red;
 }
