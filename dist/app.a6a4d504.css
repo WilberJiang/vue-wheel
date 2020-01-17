@@ -966,7 +966,12 @@
   display: flex;
   height: 40px;
   justify-content: flex-start;
-  border: 1px solid red;
+  position: relative;
+}
+.tabs-head .line[data-v-2cdba6] {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid blue;
 }
 .tabs-head .actions-wrapper[data-v-2cdba6] {
   margin-left: auto;
@@ -979,7 +984,8 @@
   align-items: center;
 }
 .tabs-item.active[data-v-e7257a] {
-  background: red;
+  color: blue;
+  font-weight: border;
 }
 .tabs-pane.active[data-v-8c86cd] {
   background: red;
