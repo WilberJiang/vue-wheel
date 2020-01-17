@@ -967,6 +967,7 @@
   height: 40px;
   justify-content: flex-start;
   position: relative;
+  border-bottom: 1px solid #ddd;
 }
 .tabs-head .line[data-v-2cdba6] {
   position: absolute;
@@ -976,6 +977,9 @@
 }
 .tabs-head .actions-wrapper[data-v-2cdba6] {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
 }
 .tabs-item[data-v-e7257a] {
   flex-shrink: 0;
@@ -987,4 +991,7 @@
 .tabs-item.active[data-v-e7257a] {
   color: blue;
   font-weight: border;
+}
+.tabs-pane[data-v-8c86cd] {
+  padding: 1em;
 }
