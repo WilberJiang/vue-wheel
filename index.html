@@ -51,7 +51,13 @@
   </head>
   <body>
     <div id="app">
-      <g-tabs :selected.sync="selectdTab">
+      <g-popover>
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <button>点我</button>
+      </g-popover>
+      <!-- <g-tabs :selected.sync="selectdTab">
         <g-tabs-head>
           <template slot="actions">
             <button>设置</button>
@@ -68,7 +74,7 @@
           <g-tabs-pane name="sports">体育相关</g-tabs-pane>
         </g-tabs-body>
       </g-tabs>
-      <!-- <g-button @click="showToast">点我</g-button>
+      <g-button @click="showToast">点我</g-button>
       <g-layout style="height:100vh">
         <g-header>header</g-header>
         <g-layout>
