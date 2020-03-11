@@ -14090,7 +14090,20 @@ var _default = {
   },
   methods: {
     xxx: function xxx() {
+      var _this = this;
+
       this.visible = !this.visible;
+
+      if (this.visible === true) {
+        this.$nextTick(function () {
+          var eventHandler = function eventHandler() {
+            _this.visible = false;
+            document.removeEventListener("click", eventHandler);
+          };
+
+          document.addEventListener("click", eventHandler);
+        });
+      }
     }
   }
 };
